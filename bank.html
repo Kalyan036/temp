@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let users=[];
+        let useremail="";
+        username="";
+        function userAdd(){
+            let name=document.getElementById("name").value;
+            let email=document.getElementById("email").value;
+            let password=document.getElementById("password").vaule;
+            let dob=document.getElementById("dob").vaule;
+            let user = {
+                name:name,
+                email:email,
+                password:password,
+                dob:dob
+            }
+            users.push(user);
+            login();
+            
+
+        }
+        function userChk(){
+            let email=document.getElementById("email").vaule;
+            let password=document.getElementById("password").vaule;
+            for(let i=0;i<users.length;i++){
+                if(users[i].email == email && users[i].password == password){
+                    useremail=email;
+                    username=users[i].name;
+                    let str=`
+                    <p>Welcome</p>
+                    `
+                    root.innerHTML = str;
+                }
+                else{
+                    msg.innerHTML = "Access Denied";
+                }
+            }
+            
+        }
+        function create(){
+            let str = `
+            <p><h1>Registration</h1></p>
+            <p><input type="text" id="name" placeholder="Name"></p>
+            <p><input type="email" id="email" placeholder="Email"></p>
+            <p><input type="password" id="password" placeholder="Password"></p>
+            <p><input type="date" id="dob"></p>
+            <p><button onclick="userAdd()">Submit</button></p>
+            <p>Already a Member?<button onclick="login()">login here</button></p>
+            
+            `
+            root.innerHTML = str;            
+
+        }
+        function login(){
+            let str = `
+            <h1>Log In</h1>
+            <p id="msg"></p>
+            <p><input type="email" id="email" placeholder="Email">
+            <p><input type="password" id="password" placeholder="Password">
+            <p><button onclick="userChk()">Log in</button>
+            <p>New User...?
+            <button onclick="create()">Create Account</button>
+            `
+            root.innerHTML = str;
+        }
+    </script>
+</head>
+<body onload="login()">
+    <div id="root"></div>    
+</body>
+</html>
