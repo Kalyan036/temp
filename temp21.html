@@ -46,8 +46,11 @@
             color: white;
             background-color: green;
             font-size: 20px;
-            padding: 10px;
-            border-radius: 20px;
+            padding: 5px;
+            border-radius: 5px;
+            width: 200px;
+            border: none;
+            margin: 5px;
         }
         .leftCaption{
             color: gray;
@@ -63,7 +66,16 @@
             margin: 5px;
             border-radius: 5px;
         }
+        .qmark{
+            background-color: green;
+            border-radius: 5px;
+            color: white;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin: 2px;
+        }
     </style>
+    
 </head>
 <body>
     <div class="container">
@@ -81,7 +93,7 @@
             <input type="text" placeholder="Surname">
         </div>
         <div class="row" style="justify-content: start;">
-            <div class="leftCaption">Date of Birth</div>
+            <div class="leftCaption">Date of Birth <span class="qmark"><abbr title="Click here for more information">?</abbr></span></div>
         </div>
         <div class="row">
             <select id="day"></select>
@@ -89,7 +101,7 @@
             <select id="year"></select>
         </div>
         <div class="row" style="justify-content: start;">
-            <div class="leftCaption">Gender</div>
+            <div class="leftCaption">Gender  <span class="qmark"><abbr title="Click here for more information">?</abbr></span></div>
         </div>
         <div class="row">
             <div class="radioClass">
@@ -108,9 +120,31 @@
         <div class="row">
             <input type="password" placeholder="New password">
         </div>
+        <div class="row">
+            <button>Sign Up</button>
+        </div>
 
 
     </div>
+    <script>
+        let str = "";
+        for(let i=1;i<=31;i++){
+            str += `<option>${i}</option>`;
+        }
+        day.innerHTML = str;
+
+        str = "";
+        for(let i=1;i<=12;i++){
+            str += `<option>${i}</option>`;
+        }
+        month.innerHTML = str;
+
+        str = "";
+        for(let i=1900;i<=2025;i++){
+            str += `<option>${i}</option>`;
+        }
+        year.innerHTML = str;
+    </script>
     
 </body>
 </html>
