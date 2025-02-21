@@ -128,10 +128,15 @@
         yy = Number(document.getElementById("year").value);
         console.log(dd, mm, yy);
         let dob = `${dd}-${months[mm]}-${yy}`;
-        g = "";
         if (gender[0].checked) g = "Female";
         if (gender[1].checked) g = "Male";
         if (gender[2].checked) g = pronoun;
+        let i="";
+        let intrests =document.getElementsByName("intrests");
+        if(intrests[0].checked) i+="Movies ";
+        if(intrests[1].checked) i+="Music ";
+        if(intrests[2].checked) i+="Sports ";
+        
         let str = `
           <h3>Verify your information</h3>
           <p>Name:${firstname} ${surname}</p>
@@ -139,6 +144,7 @@
           <p>Password:${password}</p>
           <p>Gender:${g}</p>
           <p>Date of Birth:${dob}</p>
+          <p>Intrests:${i}</p>
           <button>Confirm</button>
           <button onclick=showForm()>Edit</button>
         </div>
@@ -237,16 +243,22 @@
 
       <div class="row">
         <div class="radioClass">
-          <input type="checkbox" id="movies" name="movies" value="movies">
-          <label for="movies">Movies</label>
+          <div class="leftClass">
+            <input type="checkbox" id="movies" name="intrests" value="movies">
+            <label for="movies">Movies</label>
+          </div>
         </div>
         <div class="radioClass">
-          <input type="checkbox" id="sports" name="sports" value="sports">
-          <label for="movies">sports</label>
+          <div class="leftClass">
+            <input type="checkbox" id="music" name="intrests" value="music">
+            <label for="music">Music</label>
+          </div>
         </div>
         <div class="radioClass">
-          <input type="checkbox" id="music" name="music" value="music">
-          <label for="movies">music</label>
+          <div class="leftClass">
+            <input type="checkbox" id="sports" name="intrests" value="sports">
+            <label for="sports">Sports</label>
+          </div>
         </div>
       </div>
 
